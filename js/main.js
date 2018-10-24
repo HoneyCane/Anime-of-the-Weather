@@ -92,9 +92,11 @@ function loadAnimes() {
   // determine the range of animes to display based on weather data
   startRange = int(map(int(weatherData.main.temp), 255, 310, 0, (animes.length)-3, true));
 
+  startingX = (windowWidth / 2) - 437;
+
   for (var i = 0; i < 3; ++i) {
     splashArts.push(createImg(animes[i + startRange].image_url));
-    splashArts[i].position(50 + (i)*325, 150);
+    splashArts[i].position(startingX + (i)*325, 150);
   }
 }
 
