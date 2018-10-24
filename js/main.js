@@ -95,9 +95,12 @@ function loadAnimes() {
 
   startingX = (windowWidth / 2) - 437;
 
+  textSize(14);
+  textAlign(LEFT);
   for (var i = 0; i < 3; ++i) {
     splashArts.push(createImg(animes[i + startRange].image_url));
     splashArts[i].position(startingX + (i)*325, 150);
+    text(animes[i+startRange].title, startingX + (i)*325, 500);
   }
 }
 
@@ -119,6 +122,7 @@ function updateHeader() {
   var weatherStr = "In Chicago, it's " + int(weatherData.main.temp - 234) +
                     " degrees with " + str(weatherData.weather[0].description);
   textSize(30);
+  textAlign(CENTER);
   text(weatherStr, 50, 50, windowWidth-50, 100);
 
   var animeStr = "I recommend these animes this " + dayOfTheWeek;
