@@ -5,7 +5,7 @@ var canvas;
 var saveButton;
 
 // images
-var splashArts = [];
+var splashArts;
 
 // JSON data files
 var weatherData;
@@ -13,7 +13,7 @@ var animeData;
 
 // data extracted from JSON files
 var dayOfTheWeek;
-var animes = [];
+var animes;
 var startRange;
 
 // API URL's
@@ -42,7 +42,6 @@ function setup() {
   textAlign(CENTER);
   textFont("Arial");
 
-  loadAnimes();
   updateHeader();
 
   // have the weather data update every 5 seconds
@@ -64,7 +63,9 @@ function getDayOfTheWeek() {
 
 // Loads splash art images from top 3 animes of the day
 function loadAnimes() {
-  background(255,204,0);
+  // empty the arrays
+  animes     = [];
+  splashArts = [];
 
   switch (dayOfTheWeek) {
     case "monday":
@@ -113,6 +114,8 @@ function updateWeather() {
 
 // prints the text onto the canvas
 function updateHeader() {
+  background(255,204,0);
+
   var weatherStr = "In Chicago, it's " + int(weatherData.main.temp - 234) +
                     " degrees with " + str(weatherData.weather[0].description);
   textSize(30);
@@ -121,6 +124,8 @@ function updateHeader() {
   var animeStr = "I recommend these animes this " + dayOfTheWeek;
   textSize(20);
   text(animeStr, 50, 100, windowWidth-50, 150);
+
+  loadAnimes();
 }
 
 // deprecated
