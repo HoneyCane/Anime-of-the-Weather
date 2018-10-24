@@ -101,7 +101,7 @@ function loadAnimes() {
 // Saves the weather data as a json file in browser's default download path
 function saveData() {
   saveJSON(animeData, "anime.json");
-  saveJSON(weatherData, "weather.json");
+  // saveJSON(weatherData, "weather.json");
 }
 
 // Releads the JSON var with latest data from API
